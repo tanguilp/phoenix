@@ -917,22 +917,6 @@ defmodule Phoenix.Endpoint do
         ]
   ```
 
-  > #### Where are my headers? {: .tip}
-  >
-  > Phoenix only gives you limited access to the connection headers for security
-  > reasons. WebSockets are cross-domain, which means that, when a user "John Doe"
-  > visits a malicious website, the malicious website can open up a WebSocket
-  > connection to your application, and the browser will gladly submit John Doe's
-  > authentication/cookie information. If you were to accept this information as is,
-  > the malicious website would have full control of a WebSocket connection to your
-  > application, authenticated on John Doe's behalf.
-  >
-  > To safe-guard your application, Phoenix limits and validates the connection
-  > information your socket can access. This means your application is safe from
-  > these attacks, but you can't access cookies and other headers in your socket.
-  > You may access the session stored in the connection via the `:connect_info`
-  > option, provided you also pass a csrf token when connecting over WebSocket.
-
   ## Websocket configuration
 
   The following configuration applies only to `:websocket`.
